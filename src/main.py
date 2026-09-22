@@ -1,5 +1,5 @@
 from services.analyze_response import analyze_responses
-from services.report import build_report
+from services.report_terminal import build_report_terminal
 from src.services.cleaning import clean_responses
 from src.services.ingestion import load_responses
 
@@ -17,7 +17,7 @@ def main():
 
     analyzed_responses = analyze_responses(responses.responses)
 
-    report = build_report(
+    report = build_report_terminal(
         responses,
         analyzed_responses,
     )

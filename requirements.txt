@@ -1,1 +1,7 @@
 pydantic
+fastapi
+uvicorn
+starlette
+
+# Para conseguir enviar arquivos para a API
+python-multipart

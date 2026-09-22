@@ -81,3 +81,74 @@ Resposta limpa -> Detector de menções -> Resposta analisada
 - Como elas aparecem
 - Quando aparece mais de 1 
 - Tenho que criar um `models` para a resposta desta analize - `analyzed_response.py` OK
+
+
+## Criação da API com fastAPI
+
+```
+GET  /health
+POST /analyze
+```
+
+- Tenho que liberar a API
+- Opção de carregar arquivo
+- Opção de retornar os dados processados
+- Documentar a API pra deixar legal de usar
+---
+
+1. GET /share-of-voice?marca=Acme   
+Share of voice mede a presença de uma marca em relação aos concorrentes. (retirado do arquivo json)  
+- Preciso do percentual
+- Total
+- Por plataforma
+---
+
+2. GET /top-citacoes?n=5
+- usar o sentimento, quando é positivo deve carregar maior peso
+- usar o número de menções
+- usar o sentimento negativo também pode ser uma boa para "hankiar"
+
+```
+    numero de menções 2 + sentimento positivo   = 2 + 1 = 3 
+    numero de menções 3 + sentimento neutro     = 3 + 0 = 3 
+    numero de menções 1 + sentimento positivo   = 1 + 1 = 2 
+    numero de menções 2 + sentimento negativo   = 2 - 0.5 = 1.5
+```
+---
+
+3. POST /respostas — adicionar uma nova resposta ao conjunto (validando o formato)
+- Adicionar uma nova resposta ao JSON - ao final é claro
+---
+
+4. Dei uma pausa e vou refatorar o meu app.py contendo a API  
+- Separação de Responsabilidades, ta tudo entulhado
+- Uso de Injeção de Dependências
+
+## Persistência dos dados
+JSOn é bem mais prático para o momento, mas usar o SQLite mostraria que eu sei fazer esta integração....
+Vou fazer os dois ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
