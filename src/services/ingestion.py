@@ -1,5 +1,6 @@
 import json
 
+from pathlib import Path
 
 def load_responses(file_content: bytes) -> list[dict]:
     try:
@@ -12,13 +13,14 @@ def load_responses(file_content: bytes) -> list[dict]:
 
     return data
 
-'''
-from pathlib import Path
-# Carrega o arquivo em /data/
-# antigo para testar
-# pegava o arquivo localmente
-def load_responses(file_path: str | Path) -> list[dict]:
-    path = Path(file_path)
+
+
+FILE_NAME = "respostas-exemplo.json"
+ROOT_DIR = Path(__file__).parent.parent.parent
+FILE_PATH = ROOT_DIR / "data" / FILE_NAME
+
+def load_responses_local() -> list[dict]:
+    path = FILE_PATH
 
     if not path.exists():
         raise FileNotFoundError("Arquivo não encontrado: {}".format(path))
@@ -31,4 +33,36 @@ def load_responses(file_path: str | Path) -> list[dict]:
 
     return data
 
-'''
+# mantém o conjunto de respostas
+# separar depois ou não?
+def save_responses(
+    responses: list[dict],
+) -> None:
+
+    with FILE_PATH.open(
+        "w",
+        encoding="utf-8",
+    ) as file:
+        json.dump(
+            responses,
+            file,
+            ensure_ascii=False,
+            indent=2,
+        )
+
+def add_response(
+    response: dict,
+) -> None:
+
+    responses = load_responses_local()
+
+    existing_ids = {
+        item.get("id")
+        for item in responses
+    }
+
+    if response["id"] in existing_ids:
+        raise ValueError(f"A resposta '{response['id']}' já existe.")
+
+    responses.append(response)
+    save_responses(responses)

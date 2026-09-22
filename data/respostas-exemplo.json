@@ -97,5 +97,14 @@
     "resposta_texto": "Sim, NIMBUS e Acme são frequentemente comparadas em relatórios do setor, cada uma com pontos fortes distintos.",
     "data_hora": "2026-01-22T16:45:00",
     "sentimento": "neutro"
+  },
+  {
+    "id": "string",
+    "pergunta": "Qual é a melhor opção?",
+    "plataforma": "string",
+    "modelo": "string",
+    "resposta_texto": "string",
+    "data_hora": "string",
+    "sentimento": "string"
   }
 ]
