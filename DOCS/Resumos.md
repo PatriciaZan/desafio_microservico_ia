@@ -81,3 +81,16 @@ Resposta limpa -> Detector de menções -> Resposta analisada
 - Como elas aparecem
 - Quando aparece mais de 1 
 - Tenho que criar um `models` para a resposta desta analize - `analyzed_response.py` OK
+
+
+## Criação da API com fastAPI
+
+```
+GET  /health
+POST /analyze
+```
+
+- Tenho que liberar a API
+- Opção de carregar arquivo
+- Opção de retornar os dados processados
+- Documentar a API pra deixar legal de usar

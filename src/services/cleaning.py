@@ -26,7 +26,7 @@ def clean_responses(
 
     return IngestionResult(
         total_received=len(records),
-        total_processed=len(responses),
+        total_accepted=len(responses),
         total_duplicates=duplicates,
         total_rejected=len(errors),
         responses=responses,
