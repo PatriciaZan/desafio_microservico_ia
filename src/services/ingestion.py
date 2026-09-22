@@ -2,6 +2,9 @@ import json
 
 from pathlib import Path
 
+from src.services.validate_response import validate_response
+
+
 def load_responses(file_content: bytes) -> list[dict]:
     try:
         data = json.loads(file_content.decode("utf-8"))
@@ -61,8 +64,8 @@ def add_response(
         for item in responses
     }
 
-    if response["id"] in existing_ids:
-        raise ValueError(f"A resposta '{response['id']}' já existe.")
+    # Validar com IDs existentes
+    validate_response(response, existing_ids=existing_ids)
 
     responses.append(response)
     save_responses(responses)

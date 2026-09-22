@@ -1,13 +1,19 @@
+from datetime import datetime, timezone
 from fastapi import FastAPI, HTTPException, UploadFile, File, Query
 from starlette.middleware.cors import CORSMiddleware
 
+from src.services.get_analyzed_responses import get_analysis_data
 from src.services.validate_response import validate_response
-from src.models.response import Response
-from src.services.metrics import calculate_share_of_voice, get_top_citations
 from src.services.analyze_response import analyze_responses
 from src.services.cleaning import clean_responses
 from src.services.ingestion import load_responses, load_responses_local, add_response
 from src.services.report import build_analysis_result
+
+
+from src.models.response import Response
+
+from src.metrics.metric_share_of_voice import calculate_share_of_voice
+from src.metrics.metric_top_citation import get_top_citations
 
 
 app = FastAPI(
@@ -47,12 +53,9 @@ async def analyze(file: UploadFile = File(...)):
         )
     try:
         file_content = await file.read()
-
         #records = load_responses("data/respostas-exemplo.json")
         records = load_responses(file_content)
-
         ingestion_result = clean_responses(records)
-
         analyzed_responses = analyze_responses(ingestion_result.responses)
 
         return build_analysis_result(
@@ -77,9 +80,8 @@ def share_of_voice(
     marca: str = Query(..., min_length=1)
 ):
     try:
-        records = load_responses_local()
-        ingestion_result = clean_responses(records)
-        analyzed_responses = analyze_responses(ingestion_result.responses)
+        _, analyzed_responses = get_analysis_data()
+
         return calculate_share_of_voice(
             analyzed_responses,
             marca,
@@ -99,12 +101,9 @@ def top_citations(
         le=100,
     )
 ):
+
     try:
-        records = load_responses_local()
-
-        ingestion_result = clean_responses(records)
-        analyzed_responses = analyze_responses(ingestion_result.responses)
-
+        _, analyzed_responses = get_analysis_data()
         return {
             "limit": n,
             "results": get_top_citations(
@@ -124,17 +123,12 @@ def create_response(
     response: Response,
 ):
     try:
-        validate_response(response)
-
-        add_response(
-            response.model_dump(
-                mode="json"
-            )
-        )
+        response.model_dump(mode="json")
 
         return {
             "message": "Resposta adicionada com sucesso.",
             "id": response.id,
+            "timestamp": datetime.now(timezone.utc).isoformat(),
         }
 
     except ValueError as error:
