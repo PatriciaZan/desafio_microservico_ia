@@ -1,3 +1,5 @@
+from services.analyze_response import analyze_responses
+from services.report import build_report
 from src.services.cleaning import clean_responses
 from src.services.ingestion import load_responses
 
@@ -13,15 +15,14 @@ def main():
     responses = clean_responses(records)
     print(responses)
 
-    # ! remover depois, caso eu ainda queira visualizar no desenvolvimento
-    #print(f"Registros recebidos: {len(records)}")
-    #print(
-    #   f"Registros após limpeza: "
-    #   f"{len(responses)}"
-    #)
-   # for response in responses:
-     #   print(response.model_dump())
+    analyzed_responses = analyze_responses(responses.responses)
 
+    report = build_report(
+        responses,
+        analyzed_responses,
+    )
+
+    print(report)
 
 if __name__ == "__main__":
     main()

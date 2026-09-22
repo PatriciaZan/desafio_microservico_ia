@@ -31,7 +31,7 @@ Não deve ir para a análise, não faz sentido ir...
 
 ---
 
-Vou separ em uma camada de limpeza e depois jogar para a análise.
+Vou separar em uma camada de limpeza e depois jogar para a análise.
 ```
                  respostas.json
                        │
@@ -65,3 +65,19 @@ Vou separ em uma camada de limpeza e depois jogar para a análise.
              │ menções às marcas│
              └──────────────────┘
 ```
+
+
+Terminei uma versão de limpeza e normalizaão que estou satisgeita
+
+---
+
+## Extração dos metadados e informações 
+
+Resposta limpa -> Detector de menções -> Resposta analisada
+
+
+1. Para extrair as empresas que aparecem eu tenho que considerar:
+- Quantas vezes elas aparecem em uma frase
+- Como elas aparecem
+- Quando aparece mais de 1 
+- Tenho que criar um `models` para a resposta desta analize - `analyzed_response.py` OK

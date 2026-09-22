@@ -1,7 +1,5 @@
 from pydantic import BaseModel
-
 from src.models.response import Response
-
 
 class IngestionError(BaseModel):
     record_id: str | None = None
@@ -10,6 +8,7 @@ class IngestionError(BaseModel):
 
 class IngestionResult(BaseModel):
     total_received: int
+    #total_valid: int # adicionar quantas são validas
     total_processed: int
     total_duplicates: int
     total_rejected: int
