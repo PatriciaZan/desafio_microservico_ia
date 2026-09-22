@@ -1,5 +1,6 @@
 from pydantic import ValidationError
 
+from src.models.ingestion import IngestionError
 from src.models.response import Response
 
 from src.services.normalize_datetime import normalize_datetime
@@ -9,9 +10,10 @@ from src.services.normalize_platform import normalize_platform
 
 def clean_response(
     data: dict,
-) -> Response | None:
+) -> tuple[Response | None, IngestionError | None]: # por que retornou None
 
     data = data.copy()
+    record_id = data.get("id")
 
     # Normalização de texto
     data["pergunta"] = clean_text(data.get("pergunta"))
@@ -20,14 +22,32 @@ def clean_response(
 
     # Resposta vazia não pode ser analisada
     if not data["resposta_texto"]:
-        return None
+        return (
+            None,
+            IngestionError(
+                record_id=record_id,
+                reason="empty_response",
+            ),
+        )
+    try:
+        # Normalização da plataforma
+        data["plataforma"] = normalize_platform(data["plataforma"])
 
-    # Normalização da plataforma
-    data["plataforma"] = normalize_platform(data["plataforma"])
+        # Normalização da data
+        data["data_hora"] = normalize_datetime( data.get("data_hora"))
 
-    # Normalização da data
-    data["data_hora"] = normalize_datetime( data.get("data_hora"))
+        response = Response.model_validate(data)
+        return response, None
 
+    except (ValidationError, ValueError) as error:
+        return (
+            None,
+            IngestionError(
+                 record_id=record_id,
+                 reason=str(error),
+            ),
+    )
+    '''
     try:
         return Response.model_validate(data)
     except ValidationError as error:
@@ -36,3 +56,4 @@ def clean_response(
             f"{data.get('id')}: {error}"
         )
         return None
+    '''

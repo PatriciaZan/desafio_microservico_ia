@@ -21,10 +21,9 @@ def normalize_datetime(value: str | None) -> str | None:
         try:
             dt = datetime.strptime(value, date_format)
             # Retorna padronizado como string ISO (ex: "2026-01-15T00:00:00")
-            print(dt.isoformat())
+            #print(dt.isoformat())
             return dt.isoformat()
         except ValueError:
             continue
 
-    # Caso queira que retorne None em vez de crashar a aplicação com dados sujos do scraping:
     return None

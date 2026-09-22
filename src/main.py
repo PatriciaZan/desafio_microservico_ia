@@ -11,16 +11,16 @@ FILES_PATH = ROOT_DIR / "data" / FILE_NAME
 def main():
     records = load_responses(FILES_PATH)
     responses = clean_responses(records)
+    print(responses)
 
-    print(f"Registros recebidos: {len(records)}")
-
-    print(
-        f"Registros após limpeza: "
-        f"{len(responses)}"
-    )
-
-    for response in responses:
-        print(response.model_dump())
+    # ! remover depois, caso eu ainda queira visualizar no desenvolvimento
+    #print(f"Registros recebidos: {len(records)}")
+    #print(
+    #   f"Registros após limpeza: "
+    #   f"{len(responses)}"
+    #)
+   # for response in responses:
+     #   print(response.model_dump())
 
 
 if __name__ == "__main__":
