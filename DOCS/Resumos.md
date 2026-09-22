@@ -105,7 +105,7 @@ Share of voice mede a presença de uma marca em relação aos concorrentes. (ret
 
 2. GET /top-citacoes?n=5
 - usar o sentimento, quando é positivo deve carregar maior peso
-- usar o numero de menções
+- usar o número de menções
 - usar o sentimento negativo também pode ser uma boa para "hankiar"
 
 ```
@@ -118,3 +118,37 @@ Share of voice mede a presença de uma marca em relação aos concorrentes. (ret
 
 3. POST /respostas — adicionar uma nova resposta ao conjunto (validando o formato)
 - Adicionar uma nova resposta ao JSON - ao final é claro
+---
+
+4. Dei uma pausa e vou refatorar o meu app.py contendo a API  
+- Separação de Responsabilidades, ta tudo entulhado
+- Uso de Injeção de Dependências
+
+## Persistência dos dados
+JSOn é bem mais prático para o momento, mas usar o SQLite mostraria que eu sei fazer esta integração....
+Vou fazer os dois ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

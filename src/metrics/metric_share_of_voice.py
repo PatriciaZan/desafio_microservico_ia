@@ -76,10 +76,10 @@ def calculate_share_of_voice(
                 )
 
     for platform, data in by_platform.items():
-        data["share_of_voice"] = (
+        data["share_of_voice"] = round(
                 data["responses_with_brand"]
                 / data["total_responses"]
-                * 100
+                * 100, 2
         )
 
     return {
