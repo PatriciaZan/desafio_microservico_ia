@@ -1,0 +1,33 @@
+# --- PyCharm / JetBrains IDEs ---
+.idea/
+*.iws
+out/
+modules.xml
+workspace.xml
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# --- Virtual Environments ---
+.venv/
+venv/
+ENV/
+env/
+
+# --- Environmental variables / Secrets ---
+.env
+.envrc
+
+# --- Testing & Coverage ---
+.cache
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*,cover
