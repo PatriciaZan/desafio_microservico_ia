@@ -1,4 +1,4 @@
-# Desafio Microserviço Extração de metadados
+# Desafio Microserviço Extração de Metadados
 
 Extração de marcas expecificas, tratamento de dados e normalização.
 
@@ -38,7 +38,7 @@ Por que essa estrutura?
 
 3. **Resiliência a Dados Sujos**: Módulos dedicados à limpeza (`clean_response.py`, `normalize_platform.py`) garantem que dados mal formatados provenientes de scraping automático sejam tratados antes de corromperem as análises.
 
-**Diagma simples**
+**Diagrama simples**
 
 ```Plaintext
 ================================================================================
@@ -101,7 +101,7 @@ Por que essa estrutura?
 
 ## Entregas e Requisitos Atendidos
 
-### 1. **Ingestão** O arquivo é carregado apartir da pasta `data/` e passa por validação, com a função de "entrada" sendo `analyze_response`
+### 1. **Ingestão** O arquivo é carregado a partir da pasta `data/` e passa por validação, com a função de "entrada" sendo `analyze_response`
 
 - Validação de tipo
 - Validação das informações
@@ -180,6 +180,7 @@ Decidi implementar ambas as abordagens por dois motivos: prática e fallback.
 1. **Containerização (Docker)**: Criar um Dockerfile e um docker-compose.yml para empacotar a aplicação e o banco de dados, facilitando o deploy em qualquer ambiente.
 2. **Cobertura de Testes de Integração**: Expandir os testes de ponta a ponta (E2E) simulando requisições HTTP completas nos endpoints da API usando o TestClient do FastAPI.
 3. **Uso de Sentimento Avançado** para gerar maior qualidade da classificação.
+4. **Separaçã ode funções** melhor estrutura dos arquivos, com distinção clara de suas funções dentro de services. Para escalabilidade.
 
 ## 📃 DOCS
 
