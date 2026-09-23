@@ -39,7 +39,7 @@ def clean_response(
         response = Response.model_validate(data)
         return response, None
 
-    except (ValidationError, ValueError) as error:
+    except (ValidationError, ValueError, KeyError) as error:
         return (
             None,
             IngestionError(
@@ -47,13 +47,3 @@ def clean_response(
                  reason=str(error),
             ),
     )
-    '''
-    try:
-        return Response.model_validate(data)
-    except ValidationError as error:
-        print(
-            f"Registro inválido "
-            f"{data.get('id')}: {error}"
-        )
-        return None
-    '''

@@ -5,3 +5,6 @@ starlette
 
 # Para conseguir enviar arquivos para a API
 python-multipart
+
+# Testes
+pytest

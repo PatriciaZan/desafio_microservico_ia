@@ -11,18 +11,13 @@ def clean_responses(
     errors: list[IngestionError] = []
 
     for record in records:
-
         response, error = clean_response(record)
-
         if error:
             errors.append(error)
             continue
-
         responses.append(response)
 
-    responses, duplicates = remove_duplicates(
-        responses
-    )
+    responses, duplicates = remove_duplicates(responses)
 
     return IngestionResult(
         total_received=len(records),

@@ -145,7 +145,7 @@ O SQLite ficou simples mas existe também :D
 ## Testes, nunca criei testes no pyhton, vamos ver como fazer
 
 - Eu quero testar:
-- 1. 
+- 1. Usar o pytest
 
 
 
