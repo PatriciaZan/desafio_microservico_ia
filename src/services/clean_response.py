@@ -39,11 +39,32 @@ def clean_response(
         response = Response.model_validate(data)
         return response, None
 
-    except (ValidationError, ValueError, KeyError) as error:
+
+    except KeyError:
         return (
             None,
             IngestionError(
-                 record_id=record_id,
-                 reason=str(error),
+                record_id=record_id,
+                reason="invalid_data",
             ),
-    )
+        )
+
+    except ValueError as error:
+        return (
+            None,
+            IngestionError(
+                record_id=record_id,
+                reason=str(error),
+            ),
+        )
+
+    except ValidationError:
+        return (
+            None,
+            IngestionError(
+                record_id=record_id,
+                reason="invalid_data",
+
+            ),
+
+        )

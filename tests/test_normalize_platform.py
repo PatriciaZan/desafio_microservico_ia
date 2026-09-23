@@ -1,7 +1,5 @@
 import pytest
-
 from src.services.normalize_platform import normalize_platform
-# Aqui estamos testando tanto os aliases que você definiu quanto o comportamento para plataformas desconhecidas. Sua implementação usa strip().lower() para procurar o alias e, se não encontrar, retorna a versão com espaços externos removidos.
 
 @pytest.mark.parametrize(
     "value, expected",

@@ -10,9 +10,7 @@ def test_detect_single_brand():
 
 
 def test_detect_multiple_brands():
-    result = detect_mentions(
-        "Eu gosto da Acme e também da Zenith."
-    )
+    result = detect_mentions("Eu gosto da Acme e também da Zenith.")
 
     assert len(result) == 2
 
@@ -23,9 +21,7 @@ def test_detect_multiple_brands():
 
 
 def test_detect_brand_case_insensitive():
-    result = detect_mentions(
-        "ACME é uma empresa conhecida."
-    )
+    result = detect_mentions("ACME é uma empresa conhecida.")
 
     assert len(result) == 1
     assert result[0].brand == "Acme"
@@ -33,9 +29,7 @@ def test_detect_brand_case_insensitive():
 
 
 def test_detect_brand_alias():
-    result = detect_mentions(
-        "A Acme Corp possui vários produtos."
-    )
+    result = detect_mentions("A Acme Corp possui vários produtos.")
 
     assert len(result) == 1
     assert result[0].brand == "Acme"
@@ -43,9 +37,7 @@ def test_detect_brand_alias():
 
 
 def test_detect_brand_alias_with_punctuation():
-    result = detect_mentions(
-        "A empresa A.C.M.E. lançou um produto."
-    )
+    result = detect_mentions("A empresa A.C.M.E. lançou um produto.")
 
     assert len(result) == 1
     assert result[0].brand == "Acme"
@@ -53,9 +45,7 @@ def test_detect_brand_alias_with_punctuation():
 
 
 def test_detect_no_mentions():
-    result = detect_mentions(
-        "Esta resposta não menciona nenhuma marca."
-    )
+    result = detect_mentions("Esta resposta não menciona nenhuma marca.")
 
     assert result == []
 
@@ -67,9 +57,7 @@ def test_detect_empty_text():
 
 
 def test_detect_repeated_brand():
-    result = detect_mentions(
-        "Acme é boa. Eu gosto da Acme."
-    )
+    result = detect_mentions("Acme é boa. Eu gosto da Acme.")
 
     assert len(result) == 2
 
@@ -78,9 +66,7 @@ def test_detect_repeated_brand():
 
 
 def test_detect_longest_alias_only_once():
-    result = detect_mentions(
-        "A Acme Corp lançou um produto."
-    )
+    result = detect_mentions("A Acme Corp lançou um produto.")
 
     assert len(result) == 1
     assert result[0].brand == "Acme"
