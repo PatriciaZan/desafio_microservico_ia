@@ -128,12 +128,24 @@ Share of voice mede a presença de uma marca em relação aos concorrentes. (ret
 JSOn é bem mais prático para o momento, mas usar o SQLite mostraria que eu sei fazer esta integração....
 Vou fazer os dois ?
 
+Vou fazer um json para os dados antes.
+O SQLite ficou simples mas existe também :D
 
+- Optando por ir adicionando os resultados em vez de criar arquivos versionados
+- se fosse um deploy isso seria diferente, até pq manter bancos duplicados que fazem a mesma coisa é bem ruim...
+- Criou a preparação para mais endpoint de testes, mas talvez seja melhor manter apenas o pedido do desafio
+```
+    results/
+    ├── share-of-voice.json          (último resultado)
+    ├── share-of-voice-history.json  (histórico completo)
+    ├── top-citacoes.json
+    └── top-citacoes-history.json
+```
 
+## Testes, nunca criei testes no pyhton, vamos ver como fazer
 
-
-
-
+- Eu quero testar:
+- 1. 
 
 
 

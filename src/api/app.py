@@ -1,5 +1,6 @@
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
-from fastapi import FastAPI, HTTPException, UploadFile, File, Query, status
+from fastapi import FastAPI, HTTPException, UploadFile, File, Query, status, Path
 from starlette.middleware.cors import CORSMiddleware
 
 from src.services.get_analyzed_responses import get_analysis_data
@@ -13,12 +14,22 @@ from src.models.response import Response
 from src.metrics.metric_share_of_voice import calculate_share_of_voice
 from src.metrics.metric_top_citation import get_top_citations
 
+from src.repository.cache import initialize, save, load, load_history, clear, get_stats
+
 # Decidi manter os "tratamentos" de erros aqui mesmo, evitando criar muitos arquivos e deixando esta lógica mais contida.
+
+# lifeSpan
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    initialize()
+
+    yield
 
 app = FastAPI(
     title="Brand Monitoring API",
     description="API para análise de menções de marcas em respostas geradas por IA.",
-    version="1.0.0",
+    version="1.1.0",
+    lifespan=lifespan,
 )
 
 app.add_middleware(
@@ -42,7 +53,7 @@ def health_check():
 
 
 # Para testar com o uplaod de arquivos
-@app.post("/analyze",  status_code=status.HTTP_200_OK, summary="Analisa um arquivo separado/diferente de respostas fornecido pelo usuário.")
+@app.post("/analyze",  status_code=status.HTTP_200_OK, summary="Analisa um arquivo separado de respostas fornecido pelo usuário.")
 async def analyze(file: UploadFile = File(...)):
     # como agora pode vir qualquer tipo de arquivo eu tenho que validar primeiro
     if file.content_type != "application/json" and not file.filename.endswith(".json"):
@@ -52,7 +63,6 @@ async def analyze(file: UploadFile = File(...)):
         )
     try:
         file_content = await file.read()
-        #records = load_responses("data/respostas-exemplo.json")
         records = load_responses(file_content)
         ingestion_result = clean_responses(records)
         analyzed_responses = analyze_responses(ingestion_result.responses)
@@ -81,10 +91,18 @@ def share_of_voice(
     try:
         _, analyzed_responses = get_analysis_data()
 
-        return calculate_share_of_voice(
+        result = calculate_share_of_voice(
             analyzed_responses,
             marca,
         )
+
+        save(
+            endpoint="/share-of-voice",
+            resultado=result,
+            parametros={"marca": marca},
+        )
+
+        return result
 
     except ValueError as error:
         raise HTTPException(
@@ -104,13 +122,21 @@ def top_citations(
 
     try:
         _, analyzed_responses = get_analysis_data()
-        return {
+        result = {
             "limit": n,
             "results": get_top_citations(
                 analyzed_responses,
                 n,
             ),
         }
+
+        save(
+            endpoint="/top-citacoes",
+            resultado=result,
+            parametros={"n": n},
+        )
+
+        return result
 
     except ValueError as error:
         raise HTTPException(
@@ -136,3 +162,29 @@ def create_response(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=str(error),
         )
+
+
+# util para consulta de histórico / ver os resultados do que já foi feito
+@app.get("/cache/{endpoint}", status_code=status.HTTP_200_OK, summary="Verifica o histórico de resultados")
+def get_cached_result(
+        endpoint: str = Path(description="URL do endpoint (share-of-voice | top-citacoes)"),
+):
+    cached = load(f"/{endpoint}")
+
+    if not cached:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Nenhum cache encontrado para /{endpoint}",
+        )
+
+    return cached
+
+
+@app.delete("/cache/{endpoint}", status_code=status.HTTP_200_OK, summary="Limpa o histórico de resultados de um endpoint JSON + SQL (share-of-voice | top-citacoes)")
+def clear_cache(
+        endpoint: str = Path(description="Delete um histórico de um endpoint (share-of-voice | top-citacoes)"),
+):
+    clear(endpoint=f"/{endpoint}")
+    return {
+        "message": f"Cache do endpoint /{endpoint} foi limpo.",
+    }
