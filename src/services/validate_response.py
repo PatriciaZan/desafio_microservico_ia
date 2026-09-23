@@ -16,9 +16,12 @@ VALID_SENTIMENTS = {"positivo", "neutro", "negativo", None}
 VALID_PLATFORMS = {"ChatGPT", "Gemini", "Perplexity", "chat-gpt", "chatgpt", "gemini"}
 
 
-def validate_response(response: Response, existing_ids: set = None) -> None:
+def validate_response(response: Response | dict, existing_ids: set = None) -> None:
     if existing_ids is None:
         existing_ids = set()
+
+    if isinstance(response, dict):
+        response = Response(**response)
 
     # Validar ID
     if not response.id or not str(response.id).strip():

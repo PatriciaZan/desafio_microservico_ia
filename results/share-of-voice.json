@@ -1,29 +1,28 @@
 {
   "endpoint": "/share-of-voice",
-  "timestamp": "2026-09-23T12:14:24.528259+00:00",
+  "timestamp": "2026-09-23T12:51:14.127705+00:00",
   "parametros": {
-    "marca": "Acme"
+    "marca": "Nimbus"
   },
   "resultado": {
-    "brand": "Acme",
+    "brand": "Nimbus",
     "total_responses": 9,
-    "responses_with_brand": 5,
-    "total_mentions": 5,
-    "share_of_voice": 55.56,
+    "responses_with_brand": 3,
+    "total_mentions": 3,
+    "share_of_voice": 33.33,
     "sentimento": {
-      "positivo": 3,
-      "neutro": 1,
+      "positivo": 1,
+      "neutro": 2,
       "negativo": 0,
-      "total_com_sentimento": 4,
-      "percentual_positivo": 75.0
+      "total_com_sentimento": 3,
+      "percentual_positivo": 33.33
     },
     "by_platform": {
       "ChatGPT": {
         "total_responses": 4,
-        "responses_with_brand": 3,
-        "share_of_voice": 75.0,
+        "responses_with_brand": 1,
+        "share_of_voice": 25.0,
         "sentimento": {
-          "positivo": 1,
           "neutro": 1
         }
       },
@@ -32,7 +31,7 @@
         "responses_with_brand": 1,
         "share_of_voice": 33.33,
         "sentimento": {
-          "positivo": 1
+          "neutro": 1
         }
       },
       "Perplexity": {

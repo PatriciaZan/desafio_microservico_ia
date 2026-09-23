@@ -1,7 +1,166 @@
 [
   {
     "endpoint": "/share-of-voice",
-    "timestamp": "2026-09-23T00:07:13.607690+00:00",
+    "timestamp": "2026-09-23T12:50:20.634711+00:00",
+    "parametros": {
+      "marca": "Acme"
+    },
+    "resultado": {
+      "brand": "Acme",
+      "total_responses": 10,
+      "responses_with_brand": 5,
+      "total_mentions": 5,
+      "share_of_voice": 50.0,
+      "sentimento": {
+        "positivo": 3,
+        "neutro": 1,
+        "negativo": 0,
+        "total_com_sentimento": 4,
+        "percentual_positivo": 75.0
+      },
+      "by_platform": {
+        "ChatGPT": {
+          "total_responses": 4,
+          "responses_with_brand": 3,
+          "share_of_voice": 75.0,
+          "sentimento": {
+            "positivo": 1,
+            "neutro": 1
+          }
+        },
+        "Gemini": {
+          "total_responses": 3,
+          "responses_with_brand": 1,
+          "share_of_voice": 33.33,
+          "sentimento": {
+            "positivo": 1
+          }
+        },
+        "Perplexity": {
+          "total_responses": 2,
+          "responses_with_brand": 1,
+          "share_of_voice": 50.0,
+          "sentimento": {
+            "positivo": 1
+          }
+        },
+        "string": {
+          "total_responses": 1,
+          "responses_with_brand": 0,
+          "share_of_voice": 0.0,
+          "sentimento": {}
+        }
+      }
+    }
+  },
+  {
+    "endpoint": "/share-of-voice",
+    "timestamp": "2026-09-23T12:50:26.827482+00:00",
+    "parametros": {
+      "marca": "Zenith"
+    },
+    "resultado": {
+      "brand": "Zenith",
+      "total_responses": 10,
+      "responses_with_brand": 3,
+      "total_mentions": 3,
+      "share_of_voice": 30.0,
+      "sentimento": {
+        "positivo": 2,
+        "neutro": 1,
+        "negativo": 0,
+        "total_com_sentimento": 3,
+        "percentual_positivo": 66.67
+      },
+      "by_platform": {
+        "ChatGPT": {
+          "total_responses": 4,
+          "responses_with_brand": 1,
+          "share_of_voice": 25.0,
+          "sentimento": {
+            "positivo": 1
+          }
+        },
+        "Gemini": {
+          "total_responses": 3,
+          "responses_with_brand": 2,
+          "share_of_voice": 66.67,
+          "sentimento": {
+            "neutro": 1,
+            "positivo": 1
+          }
+        },
+        "Perplexity": {
+          "total_responses": 2,
+          "responses_with_brand": 0,
+          "share_of_voice": 0.0,
+          "sentimento": {}
+        },
+        "string": {
+          "total_responses": 1,
+          "responses_with_brand": 0,
+          "share_of_voice": 0.0,
+          "sentimento": {}
+        }
+      }
+    }
+  },
+  {
+    "endpoint": "/share-of-voice",
+    "timestamp": "2026-09-23T12:50:31.454857+00:00",
+    "parametros": {
+      "marca": "Nimbus"
+    },
+    "resultado": {
+      "brand": "Nimbus",
+      "total_responses": 10,
+      "responses_with_brand": 3,
+      "total_mentions": 3,
+      "share_of_voice": 30.0,
+      "sentimento": {
+        "positivo": 1,
+        "neutro": 2,
+        "negativo": 0,
+        "total_com_sentimento": 3,
+        "percentual_positivo": 33.33
+      },
+      "by_platform": {
+        "ChatGPT": {
+          "total_responses": 4,
+          "responses_with_brand": 1,
+          "share_of_voice": 25.0,
+          "sentimento": {
+            "neutro": 1
+          }
+        },
+        "Gemini": {
+          "total_responses": 3,
+          "responses_with_brand": 1,
+          "share_of_voice": 33.33,
+          "sentimento": {
+            "neutro": 1
+          }
+        },
+        "Perplexity": {
+          "total_responses": 2,
+          "responses_with_brand": 1,
+          "share_of_voice": 50.0,
+          "sentimento": {
+            "positivo": 1
+          }
+        },
+        "string": {
+          "total_responses": 1,
+          "responses_with_brand": 0,
+          "share_of_voice": 0.0,
+          "sentimento": {}
+        }
+      }
+    }
+  },
+  {
+    "endpoint": "/share-of-voice",
+    "timestamp": "2026-09-23T12:51:06.373178+00:00",
     "parametros": {
       "marca": "Acme"
     },
@@ -49,7 +208,7 @@
   },
   {
     "endpoint": "/share-of-voice",
-    "timestamp": "2026-09-23T00:07:21.926007+00:00",
+    "timestamp": "2026-09-23T12:51:10.505707+00:00",
     "parametros": {
       "marca": "Zenith"
     },
@@ -95,7 +254,7 @@
   },
   {
     "endpoint": "/share-of-voice",
-    "timestamp": "2026-09-23T00:07:26.062764+00:00",
+    "timestamp": "2026-09-23T12:51:14.127705+00:00",
     "parametros": {
       "marca": "Nimbus"
     },
@@ -127,54 +286,6 @@
           "share_of_voice": 33.33,
           "sentimento": {
             "neutro": 1
-          }
-        },
-        "Perplexity": {
-          "total_responses": 2,
-          "responses_with_brand": 1,
-          "share_of_voice": 50.0,
-          "sentimento": {
-            "positivo": 1
-          }
-        }
-      }
-    }
-  },
-  {
-    "endpoint": "/share-of-voice",
-    "timestamp": "2026-09-23T12:14:24.528259+00:00",
-    "parametros": {
-      "marca": "Acme"
-    },
-    "resultado": {
-      "brand": "Acme",
-      "total_responses": 9,
-      "responses_with_brand": 5,
-      "total_mentions": 5,
-      "share_of_voice": 55.56,
-      "sentimento": {
-        "positivo": 3,
-        "neutro": 1,
-        "negativo": 0,
-        "total_com_sentimento": 4,
-        "percentual_positivo": 75.0
-      },
-      "by_platform": {
-        "ChatGPT": {
-          "total_responses": 4,
-          "responses_with_brand": 3,
-          "share_of_voice": 75.0,
-          "sentimento": {
-            "positivo": 1,
-            "neutro": 1
-          }
-        },
-        "Gemini": {
-          "total_responses": 3,
-          "responses_with_brand": 1,
-          "share_of_voice": 33.33,
-          "sentimento": {
-            "positivo": 1
           }
         },
         "Perplexity": {

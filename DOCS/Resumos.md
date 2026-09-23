@@ -146,7 +146,12 @@ O SQLite ficou simples mas existe também :D
 
 - Eu quero testar:
 - 1. Usar o pytest
+- 2. Contruir um teste utiliznado classe
 
+
+## HOTFIX
+- As novas respostas não estavam sendo salvas
+- Validate_response agora trabalha com o formato dict para não quebrar 
 
 
 
