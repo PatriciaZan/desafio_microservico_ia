@@ -1,0 +1,132 @@
+[
+  {
+    "endpoint": "/top-citacoes",
+    "timestamp": "2026-09-23T00:07:50.118743+00:00",
+    "parametros": {
+      "n": 5
+    },
+    "resultado": {
+      "limit": 5,
+      "results": [
+        {
+          "id": "r004",
+          "platform": "Perplexity",
+          "question": "Quais plataformas oferecem análise de sentimento em redes sociais?",
+          "response": "A A.C.M.E. e a Nimbus são frequentemente mencionadas em comparativos de ferramentas de análise de sentimento.",
+          "brands": [
+            "Acme",
+            "Nimbus"
+          ],
+          "citation_strength": 3
+        },
+        {
+          "id": "r006",
+          "platform": "Gemini",
+          "question": "Qual empresa lidera o mercado de analytics no Brasil?",
+          "response": "No Brasil, a acme corp tem ganhado destaque, embora existam concorrentes regionais fortes como a Zenith.",
+          "brands": [
+            "Acme",
+            "Zenith"
+          ],
+          "citation_strength": 3
+        },
+        {
+          "id": "r001",
+          "platform": "ChatGPT",
+          "question": "Qual a melhor ferramenta de monitoramento de marca hoje em dia?",
+          "response": "Existem várias opções boas, mas Acme costuma ser citada como referência em monitoramento de menções, junto com outras soluções do mercado.",
+          "brands": [
+            "Acme"
+          ],
+          "citation_strength": 2
+        },
+        {
+          "id": "r003",
+          "platform": "Gemini",
+          "question": "O que é share of voice em marketing digital?",
+          "response": "Share of voice mede a presença de uma marca em relação aos concorrentes. Marcas como Zenith e Nimbus frequentemente competem por essa métrica no setor de analytics.",
+          "brands": [
+            "Zenith",
+            "Nimbus"
+          ],
+          "citation_strength": 2
+        },
+        {
+          "id": "r008",
+          "platform": "ChatGPT",
+          "question": "Zenith é confiável para pequenas empresas?",
+          "response": "Sim, a Zenith costuma ser bem avaliada por pequenas empresas devido ao custo-benefício, embora tenha funcionalidades mais limitadas que concorrentes maiores.",
+          "brands": [
+            "Zenith"
+          ],
+          "citation_strength": 2
+        }
+      ]
+    }
+  },
+  {
+    "endpoint": "/top-citacoes",
+    "timestamp": "2026-09-23T12:15:20.425562+00:00",
+    "parametros": {
+      "n": 5
+    },
+    "resultado": {
+      "limit": 5,
+      "results": [
+        {
+          "id": "r004",
+          "platform": "Perplexity",
+          "question": "Quais plataformas oferecem análise de sentimento em redes sociais?",
+          "response": "A A.C.M.E. e a Nimbus são frequentemente mencionadas em comparativos de ferramentas de análise de sentimento.",
+          "brands": [
+            "Acme",
+            "Nimbus"
+          ],
+          "citation_strength": 3
+        },
+        {
+          "id": "r006",
+          "platform": "Gemini",
+          "question": "Qual empresa lidera o mercado de analytics no Brasil?",
+          "response": "No Brasil, a acme corp tem ganhado destaque, embora existam concorrentes regionais fortes como a Zenith.",
+          "brands": [
+            "Acme",
+            "Zenith"
+          ],
+          "citation_strength": 3
+        },
+        {
+          "id": "r001",
+          "platform": "ChatGPT",
+          "question": "Qual a melhor ferramenta de monitoramento de marca hoje em dia?",
+          "response": "Existem várias opções boas, mas Acme costuma ser citada como referência em monitoramento de menções, junto com outras soluções do mercado.",
+          "brands": [
+            "Acme"
+          ],
+          "citation_strength": 2
+        },
+        {
+          "id": "r003",
+          "platform": "Gemini",
+          "question": "O que é share of voice em marketing digital?",
+          "response": "Share of voice mede a presença de uma marca em relação aos concorrentes. Marcas como Zenith e Nimbus frequentemente competem por essa métrica no setor de analytics.",
+          "brands": [
+            "Zenith",
+            "Nimbus"
+          ],
+          "citation_strength": 2
+        },
+        {
+          "id": "r008",
+          "platform": "ChatGPT",
+          "question": "Zenith é confiável para pequenas empresas?",
+          "response": "Sim, a Zenith costuma ser bem avaliada por pequenas empresas devido ao custo-benefício, embora tenha funcionalidades mais limitadas que concorrentes maiores.",
+          "brands": [
+            "Zenith"
+          ],
+          "citation_strength": 2
+        }
+      ]
+    }
+  }
+]

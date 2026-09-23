@@ -1,0 +1,48 @@
+{
+  "endpoint": "/share-of-voice",
+  "timestamp": "2026-09-23T12:14:24.528259+00:00",
+  "parametros": {
+    "marca": "Acme"
+  },
+  "resultado": {
+    "brand": "Acme",
+    "total_responses": 9,
+    "responses_with_brand": 5,
+    "total_mentions": 5,
+    "share_of_voice": 55.56,
+    "sentimento": {
+      "positivo": 3,
+      "neutro": 1,
+      "negativo": 0,
+      "total_com_sentimento": 4,
+      "percentual_positivo": 75.0
+    },
+    "by_platform": {
+      "ChatGPT": {
+        "total_responses": 4,
+        "responses_with_brand": 3,
+        "share_of_voice": 75.0,
+        "sentimento": {
+          "positivo": 1,
+          "neutro": 1
+        }
+      },
+      "Gemini": {
+        "total_responses": 3,
+        "responses_with_brand": 1,
+        "share_of_voice": 33.33,
+        "sentimento": {
+          "positivo": 1
+        }
+      },
+      "Perplexity": {
+        "total_responses": 2,
+        "responses_with_brand": 1,
+        "share_of_voice": 50.0,
+        "sentimento": {
+          "positivo": 1
+        }
+      }
+    }
+  }
+}
