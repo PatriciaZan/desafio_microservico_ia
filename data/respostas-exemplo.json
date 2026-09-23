@@ -88,5 +88,14 @@
     "resposta_texto": "As tendências incluem personalização em tempo real e o uso crescente de LLMs para geração de conteúdo. Nenhuma marca específica de monitoramento foi citada.",
     "data_hora": null,
     "sentimento": "neutro"
+  },
+  {
+    "id": "r010",
+    "pergunta": "Nimbus e Acme competem diretamente?",
+    "plataforma": "chat-gpt",
+    "modelo": "gpt-5.1",
+    "resposta_texto": "Sim, NIMBUS e Acme são frequentemente comparadas em relatórios do setor, cada uma com pontos fortes distintos.",
+    "data_hora": "2026-01-22T16:45:00",
+    "sentimento": "neutro"
   }
 ]
