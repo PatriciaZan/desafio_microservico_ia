@@ -32,6 +32,8 @@ def get_top_citations(
                 mention.brand
                 for mention in response.mentions
             ],
+            "mentions": len(response.mentions),
+            "sentimento": response.response.sentimento,
             "citation_strength": calculate_citation_strength(
                 response
             ),

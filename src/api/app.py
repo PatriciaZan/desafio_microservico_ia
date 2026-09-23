@@ -6,7 +6,7 @@ from starlette.middleware.cors import CORSMiddleware
 from src.services.get_analyzed_responses import get_analysis_data
 from src.services.analyze_response import analyze_responses
 from src.services.cleaning import clean_responses
-from src.services.ingestion import load_responses
+from src.services.ingestion import load_responses, add_response
 from src.services.report import build_analysis_result
 
 from src.models.response import Response
@@ -145,11 +145,10 @@ def top_citations(
         )
 
 @app.post("/respostas", status_code=status.HTTP_201_CREATED, summary="Adiciona uma nova resposta ao arquivo local respostas-exemplo.json")
-def create_response(
-    response: Response,
-):
+def create_response(response: Response):
     try:
-        response.model_dump(mode="json")
+        response_dict = response.model_dump(mode="json")
+        add_response(response_dict)
 
         return {
             "message": "Resposta adicionada com sucesso.",

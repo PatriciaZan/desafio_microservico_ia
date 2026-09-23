@@ -1,6 +1,6 @@
 {
   "endpoint": "/top-citacoes",
-  "timestamp": "2026-09-23T12:15:20.425562+00:00",
+  "timestamp": "2026-09-23T12:51:18.673126+00:00",
   "parametros": {
     "n": 5
   },
@@ -16,6 +16,8 @@
           "Acme",
           "Nimbus"
         ],
+        "mentions": 2,
+        "sentimento": "positivo",
         "citation_strength": 3
       },
       {
@@ -27,6 +29,8 @@
           "Acme",
           "Zenith"
         ],
+        "mentions": 2,
+        "sentimento": "positivo",
         "citation_strength": 3
       },
       {
@@ -37,6 +41,8 @@
         "brands": [
           "Acme"
         ],
+        "mentions": 1,
+        "sentimento": "positivo",
         "citation_strength": 2
       },
       {
@@ -48,6 +54,8 @@
           "Zenith",
           "Nimbus"
         ],
+        "mentions": 2,
+        "sentimento": "neutro",
         "citation_strength": 2
       },
       {
@@ -58,6 +66,8 @@
         "brands": [
           "Zenith"
         ],
+        "mentions": 1,
+        "sentimento": "positivo",
         "citation_strength": 2
       }
     ]
